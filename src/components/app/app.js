@@ -1,30 +1,36 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ToDoList from '../todo-list'
 import AppHeader from '../app-header'
 import SearchPanel from '../search-panel/'
 import 'bootstrap/dist/css/bootstrap.css'
-const App = () => {
+import './app.css';
+export default class App extends Component {
 
-    const todoData = [
-        {id: 1, label: 'Drink Coffee', important: false},
-        {id: 2,label: 'Codding', important: true},
-        {id: 3, label: 'Sleep', important: false}
-    ];
+    state = {
+        todoData: [
+            {id: 1, label: 'Drink Coffee', important: false},
+            {id: 2, label: 'Codding', important: true},
+            {id: 3, label: 'Sleep', important: false}
+        ]
+    }
 
 
-    const loginBox = <span>Log in Please</span>;
+    render() {
 
-    const isLoggedIn =  false;
 
-    const wellcome = <span>Vitaemo VAS</span>
+        return (<div className={'container'}>
 
-    return( <div className={'container'}>
-            {isLoggedIn ? wellcome : loginBox }
-            <AppHeader />
-            <SearchPanel />
-            <ToDoList todos = { todoData }  />
+                <AppHeader/>
+                <SearchPanel/>
+                <ToDoList
+                    todos={this.state.todoData}
+                    onDeleted={(id) => {
+                        console.log('del', id)
+                    }}
+                />
 
-        </div>
-    )
+            </div>
+        )
+    }
 }
-export default App;
+

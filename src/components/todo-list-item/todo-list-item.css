@@ -1,0 +1,20 @@
+.box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnIt{
+    margin: 5px;
+}
+
+.box.done{
+
+    text-decoration: line-through;
+}
+
+.box.important {
+
+    font-style: italic;
+    text-decoration: underline;
+
+}
