@@ -9,12 +9,15 @@
 
 .box.done{
 
+    font-size: 10px;
+    color: darkred;
     text-decoration: line-through;
 }
 
 .box.important {
 
-    font-style: italic;
-    text-decoration: underline;
+    color: darkviolet;
+
+    font-size: 30px;
 
 }

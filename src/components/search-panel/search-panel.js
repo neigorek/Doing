@@ -1,25 +1,38 @@
-import React from 'react'
-import ItemFilter from '../item-filter';
+import React, {Component} from 'react'
 
 
-    const SearchPanel = () => {
 
-            const SearchText = 'There Search input';
+export default class SearchPanel extends Component  {
 
-            const SearchStyle = {
-                fontSize: '20px',
-                border: '1px dotted black'
-            };
+    state = {
+        term: ''
+    };
 
-            return (<div className="input-group">
-                        <input style = { SearchStyle } type = "text" className = "form-control" placeholder = { SearchText }
-                        aria-describedby = "button-addon4"/>
+    onSearchChange = (e) => {
 
-                    <ItemFilter/>
+        const term = e.target.value;
 
-                    </div>
+        this.setState({term});
 
-            );
+        this.props.onSearchChange(term);
     }
 
-export default SearchPanel;
+
+
+            render() {
+                return(
+
+                    <input type = 'text'
+                           className={'form-control search-input'}
+                           placeholder={'type to search'}
+                           value={this.state.term}
+                           onChange={this.onSearchChange}
+                    />
+
+
+
+                )
+
+            }
+    }
+

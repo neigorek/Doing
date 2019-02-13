@@ -1,4 +1,11 @@
 
- .head{
-    font-family: "Hanalei Fill"
+
+div{
+    justify-content: space-between;
 }
+ .head{
+    font-family: "Hanalei"
+}
+  .p{
+      font-size: small;
+  }
